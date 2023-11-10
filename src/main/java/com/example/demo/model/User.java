@@ -17,9 +17,11 @@ public class User {
     private long Id;
     @Column(unique = true)
     private String userName;
+
     private String city;
     private String state;
-    private Long zipcode;
+    private Long zipCode;
+
     private Boolean peanutAllergies;
     private Boolean eggAllergies;
     private Boolean dairyAllergies;

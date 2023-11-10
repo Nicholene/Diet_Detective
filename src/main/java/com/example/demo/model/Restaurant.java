@@ -16,12 +16,20 @@ public class Restaurant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
     private String name;
+
+    private String lineOne;
+    private String city;
+    private String state;
+    private String zipCode;
+
+    private String phoneNumber;
+    private String website;
+
+
     private Double rating;
     private Double peanutRating;
     private Double eggRating;
     private Double dairyRating;
-
-
 }
 
 
