@@ -20,4 +20,6 @@ public class DiningReview {
     private Double dairyScore;
     private Long restaurantId;
     private String comments;
+
+    private ReviewStatus status;
 }
