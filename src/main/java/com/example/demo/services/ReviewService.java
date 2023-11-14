@@ -1,6 +1,8 @@
 package com.example.demo.services;
 
 import com.example.demo.model.DiningReview;
+import com.example.demo.model.AppUser;
+import com.example.demo.repository.UserRep;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.server.ResponseStatusException;
@@ -8,7 +10,10 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Optional;
 
 public class ReviewService {
-    private void validateUserReview(DiningReview review) {
+
+    UserRep userRepository;
+
+    public void validateUserReview(DiningReview review) {
         if (ObjectUtils.isEmpty(review.getName())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
@@ -23,7 +28,8 @@ public class ReviewService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
 
-        Optional<User> optionalUser = userRepository.findUserByDisplayName(review.getName());
+
+        Optional<AppUser> optionalUser = userRepository.findUserByUserName(review.getName());
         if (optionalUser.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
         }

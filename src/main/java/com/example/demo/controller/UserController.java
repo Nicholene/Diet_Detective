@@ -1,65 +1,72 @@
 package com.example.demo.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.demo.model.AppUser;
+import com.example.demo.repository.UserRep;
+import com.example.demo.services.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Optional;
 
 @RequestMapping("/users")
 @RestController
 public class UserController {
-    private final UserRep UserRep;
+    private final UserRep userRep;
 
+    UserService userService;
 
-    public UserController(UserRep UserRep) {
-        this.UserRep = UserRep;
+    public UserController(UserRep userRep) {
+        this.userRep = userRep;
     }
 
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addUser(@RequestBody User user) {
-        validateUser(user);
+    public void addUser(@RequestBody AppUser appUser) {
+        userService.validateUser(appUser);
 
 
-        UserRep.save(user);
+        userRep.save(appUser);
     }
 
 
-    @GetMapping("/{displayName}")
-    public User getUser(@PathVariable String displayName) {
-        validateDisplayName(displayName);
+    @GetMapping("/{userName}")
+    public AppUser getUser(@PathVariable String userName) {
+        userService.validateDisplayName(userName);
 
 
-        Optional<User> optionalExistingUser = UserRep.findUserByDisplayName(displayName);
+        Optional<AppUser> optionalExistingUser = userRep.findUserByUserName(userName);
         if (!optionalExistingUser.isPresent()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
 
 
-        User existingUser = optionalExistingUser.get();
-        existingUser.setId(null);
+        AppUser existingAppUser = optionalExistingUser.get();
+        existingAppUser.setId(null);
 
 
-        return existingUser;
+        return existingAppUser;
     }
 
 
     @PutMapping("/{displayName}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateUserInfo(@PathVariable String displayName, @RequestBody User updatedUser) {
-        validateDisplayName(displayName);
+    public void updateUserInfo(@PathVariable String displayName, @RequestBody AppUser updatedAppUser) {
+        userService.validateDisplayName(displayName);
 
 
-        Optional<User> optionalExistingUser = UserRep.findUserByDisplayName(displayName);
+        Optional<AppUser> optionalExistingUser = userRep.findUserByUserName(displayName);
         if (optionalExistingUser.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
 
 
-        User existingUser = optionalExistingUser.get();
+        AppUser existingAppUser = optionalExistingUser.get();
 
 
-        copyUserInfoFrom(updatedUser, existingUser);
-        UserRep.save(existingUser);
+        userService.copyUserInfoFrom(updatedAppUser, existingAppUser);
+        userRep.save(existingAppUser);
     }
 
 

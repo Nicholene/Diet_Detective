@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 @Setter
 @Getter
 @Component
-
 public class AdminReview {
     private Boolean adminApproved;
 }

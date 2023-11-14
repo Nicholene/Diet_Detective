@@ -22,14 +22,14 @@ import static java.lang.Boolean.TRUE;
 @RequestMapping("/admin")
 @RestController
 public class AdminController {
-    @Autowired
+
     AdminService adminService;
     private final DiningReviewRep diningReviewRep;
     private final UserRep userRep;
     private final RestaurantRep restaurantRep;
 
 
-    private final DecimalFormat decimalFormat = new DecimalFormat("0.00");
+
 
 
     public AdminController(DiningReviewRep diningReviewRep, UserRep userRep, RestaurantRep restaurantRep) {
@@ -48,8 +48,7 @@ public class AdminController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
 
-
-        return diningReviewRep.findReviewsByStatus(reviewStatus);
+        return diningReviewRep.findDiningReviewsByStatus(reviewStatus);
     }
 
     @PutMapping("/reviews/{reviewId}")

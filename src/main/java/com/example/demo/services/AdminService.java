@@ -3,15 +3,25 @@ package com.example.demo.services;
 import com.example.demo.model.DiningReview;
 import com.example.demo.model.Restaurant;
 import com.example.demo.model.ReviewStatus;
+import com.example.demo.repository.DiningReviewRep;
+import com.example.demo.repository.RestaurantRep;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.text.DecimalFormat;
 import java.util.List;
 @Service
 public class AdminService {
+
+    DiningReviewRep reviewRepository;
+
+    RestaurantRep restaurantRepository;
+
+    private final DecimalFormat decimalFormat = new DecimalFormat("0.00");
     public void updateRestaurantReviewScores(Restaurant restaurant) {
-        List<DiningReview> reviews = reviewRepository.findReviewsByRestaurantIdAndStatus(restaurant.getId(), ReviewStatus.ACCEPTED);
+        List<DiningReview> reviews = reviewRepository.findDiningReviewsByStatusAndRestaurantId((ReviewStatus.ACCEPTED),restaurant.getID());
         if (reviews.size() == 0) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
         }

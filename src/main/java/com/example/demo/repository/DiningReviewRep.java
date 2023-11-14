@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin
 public interface DiningReviewRep extends JpaRepository<DiningReview, Long> {
-
-    List<DiningReview> findDiningReviewByRestaurantId (Long restaurantId);
-    List<DiningReview> findDiningReviewsByRestaurantStatus (Long restaurantId, ReviewStatus reviewStatus);
-    List<DiningReview> findReviewsByStatus(ReviewStatus reviewStatus);
-
+    List<DiningReview> findDiningReviewByRestaurantId(Long restaurantId);
+    List<DiningReview> findDiningReviewsByStatusAndRestaurantId(ReviewStatus status, Long restaurantId);
+    List<DiningReview> findDiningReviewsByStatus(ReviewStatus status);
 }

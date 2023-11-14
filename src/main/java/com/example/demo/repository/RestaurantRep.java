@@ -10,7 +10,8 @@ import java.util.Optional;
 @CrossOrigin
 public interface RestaurantRep extends JpaRepository<Restaurant, Long> {
     Optional<Restaurant> findRestaurantsByNameAndZipCode(String name, String zipCode);
-    List<Restaurant> findRestaurantsByZipCodeAndPeanutScoreNotNullOrderByPeanutScore(String zipcode);
-    List<Restaurant> findRestaurantsByZipCodeAndDairyScoreNotNullOrderByDairyScore(String zipcode);
-    List<Restaurant> findRestaurantsByZipCodeAndEggScoreNotNullOrderByEggScore(String zipcode);
+    List<Restaurant> findRestaurantsByZipCodeAndPeanutRatingNotNullOrderByPeanutRating(String zipcode);
+    List<Restaurant> findRestaurantsByZipCodeAndDairyRatingNotNullOrderByDairyRating(String zipcode);
+    List<Restaurant> findRestaurantsByZipCodeAndEggRatingNotNullOrderByEggRating(String zipcode);
 }
+

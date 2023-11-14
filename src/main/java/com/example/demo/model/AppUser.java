@@ -2,19 +2,20 @@ package com.example.demo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 import jakarta.persistence.*;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
-
-public class User {
+@NoArgsConstructor
+public class AppUser {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    @GeneratedValue
+    private Long Id;
     @Column(unique = true)
     private String userName;
 

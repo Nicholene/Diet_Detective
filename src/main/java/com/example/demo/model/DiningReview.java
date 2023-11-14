@@ -1,19 +1,24 @@
 package com.example.demo.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 import jakarta.persistence.*;
+import jakarta.persistence.Id;
+
+
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
-
+@NoArgsConstructor
 public class DiningReview {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
+    @GeneratedValue
+    private Long id;
+
     private String name;
 
     private Long restaurantId;
@@ -24,4 +29,6 @@ public class DiningReview {
     private Integer dairyScore;
 
     private ReviewStatus status;
-}
+
+    }
+

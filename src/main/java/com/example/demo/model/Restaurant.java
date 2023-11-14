@@ -2,15 +2,16 @@ package com.example.demo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 import jakarta.persistence.*;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
-
+@NoArgsConstructor
 public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +27,10 @@ public class Restaurant {
     private String website;
 
 
-    private Double rating;
-    private Double peanutRating;
-    private Double eggRating;
-    private Double dairyRating;
+    private String rating;
+    private String peanutRating;
+    private String eggRating;
+    private String dairyRating;
 }
 
 
