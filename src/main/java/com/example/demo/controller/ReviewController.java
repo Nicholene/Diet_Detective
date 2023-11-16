@@ -18,30 +18,28 @@ import java.util.Optional;
 @RestController
 public class ReviewController {
     private final DiningReviewRep diningReviewRep;
-    private final UserRep userRep;
     private final RestaurantRep restaurantRep;
-
     ReviewService reviewService;
 
-    public ReviewController(DiningReviewRep diningReviewRep, UserRep userRep, RestaurantRep restaurantRep) {
+    // Constructor for the ReviewController
+    public ReviewController(DiningReviewRep diningReviewRep, RestaurantRep restaurantRep) {
         this.diningReviewRep = diningReviewRep;
-        this.userRep = userRep;
         this.restaurantRep = restaurantRep;
     }
 
-
+    // Method to add user review
     @PostMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void addUserReview(@RequestBody DiningReview review) {
         reviewService.validateUserReview(review);
 
-
+        // Check if the restaurant exists
         Optional<Restaurant> optionalRestaurant = restaurantRep.findById(review.getRestaurantId());
         if (optionalRestaurant.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
         }
 
-
+        // Set the review status and save the review
         review.setStatus(ReviewStatus.PENDING);
         diningReviewRep.save(review);
     }

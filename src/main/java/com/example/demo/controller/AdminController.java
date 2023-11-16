@@ -13,32 +13,27 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Optional;
 
-import static java.lang.Boolean.TRUE;
-
+// Define the request mapping for the controller
 @RequestMapping("/admin")
 @RestController
 public class AdminController {
 
-    AdminService adminService;
+    // Declare the repositories and service as final
     private final DiningReviewRep diningReviewRep;
-    private final UserRep userRep;
     private final RestaurantRep restaurantRep;
+    private final AdminService adminService;
 
-
-
-
-
-    public AdminController(DiningReviewRep diningReviewRep, UserRep userRep, RestaurantRep restaurantRep) {
+    // Initialize the repositories and service in the constructor
+    public AdminController(DiningReviewRep diningReviewRep, RestaurantRep restaurantRep, AdminService adminService) {
         this.diningReviewRep = diningReviewRep;
-        this.userRep = userRep;
         this.restaurantRep = restaurantRep;
+        this.adminService = adminService;
     }
 
-
+    // Endpoint to get reviews by status
     @GetMapping("/reviews")
     public List<DiningReview> getReviewsByStatus(@RequestParam String review_status) {
         ReviewStatus reviewStatus = ReviewStatus.PENDING;
@@ -51,32 +46,23 @@ public class AdminController {
         return diningReviewRep.findDiningReviewsByStatus(reviewStatus);
     }
 
+    // Endpoint to perform review action
     @PutMapping("/reviews/{reviewId}")
     public void performReviewAction(@PathVariable Long reviewId, @RequestBody AdminReview adminReviewAction) {
-        Optional<DiningReview> optionalReview = diningReviewRep.findById(reviewId);
-        if (optionalReview.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        }
+        // Find the review by id or throw an exception if not found
+        DiningReview review = diningReviewRep.findById(reviewId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
+        // Find the restaurant by id or throw an exception if not found
+        Restaurant restaurant = restaurantRep.findById(review.getRestaurantId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY));
 
-        DiningReview review = optionalReview.get();
+        // Set the review status based on the admin's decision
+        review.setStatus(adminReviewAction.getAdminApproved() ? ReviewStatus.ACCEPTED : ReviewStatus.REJECTED);
 
-
-        Optional<Restaurant> optionalRestaurant = restaurantRep.findById(review.getRestaurantId());
-        if (optionalRestaurant.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
-        }
-
-
-        if (adminReviewAction.getAdminApproved()) {
-            review.setStatus(ReviewStatus.ACCEPTED);
-        } else {
-            review.setStatus(ReviewStatus.REJECTED);
-        }
-
-
+        // Save the updated review
         diningReviewRep.save(review);
-        adminService.updateRestaurantReviewScores(optionalRestaurant.get());
+        // Update the restaurant review scores
+        adminService.updateRestaurantReviewScores(restaurant);
     }
-
 }

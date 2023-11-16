@@ -8,57 +8,54 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Collections;
-import java.util.Optional;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class RestaurantController {
 
-    RestaurantService restaurantService;
-
+    // Declare the service and repository as final
     private final RestaurantRep restaurantRep;
+    private final RestaurantService restaurantService;
 
-
-
-    public RestaurantController(RestaurantRep restaurantRep) {
+    // Initialize the service and repository in the constructor
+    public RestaurantController(RestaurantRep restaurantRep, RestaurantService restaurantService) {
         this.restaurantRep = restaurantRep;
+        this.restaurantService = restaurantService;
     }
 
-
+    // Endpoint to add a new restaurant
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Restaurant addRestaurant(@RequestBody Restaurant restaurant) {
+        // Validate the new restaurant
         restaurantService.validateNewRestaurant(restaurant);
 
-
+        // Save the new restaurant and return it
         return restaurantRep.save(restaurant);
     }
 
-
+    // Endpoint to get a restaurant by id
     @GetMapping("/{id}")
     public Restaurant getRestaurant(@PathVariable Long id) {
-        Optional<Restaurant> restaurant = restaurantRep.findById(id);
-        if (restaurant.isPresent()) {
-            return restaurant.get();
-        }
-
-
-        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        // Find the restaurant by id or throw an exception if not found
+        return restaurantRep.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
-
+    // Endpoint to get all restaurants
     @GetMapping
     public Iterable<Restaurant> getAllRestaurants() {
         return restaurantRep.findAll();
     }
 
-
+    // Endpoint to search restaurants by zipcode and allergy
     @GetMapping("/search")
     public Iterable<Restaurant> searchRestaurants(@RequestParam String zipcode, @RequestParam String allergy) {
+        // Validate the zipcode
         restaurantService.validateZipCode(zipcode);
 
-
+        // Find the restaurants based on the allergy and zipcode
         Iterable<Restaurant> restaurants = Collections.EMPTY_LIST;
         if (allergy.equalsIgnoreCase("peanut")) {
             restaurants = restaurantRep.findRestaurantsByZipCodeAndPeanutRatingNotNullOrderByPeanutRating(zipcode);
@@ -70,8 +67,6 @@ public class RestaurantController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
 
-
         return restaurants;
     }
-
 }
