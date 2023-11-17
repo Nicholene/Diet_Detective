@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 import com.example.demo.model.Restaurant;
 import com.example.demo.repository.RestaurantRep;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -14,6 +15,7 @@ import java.util.regex.Pattern;
 public class RestaurantService {
 
     // Repository for Restaurant
+    @Autowired
     RestaurantRep restaurantRep;
 
     // Pattern for validating zip code

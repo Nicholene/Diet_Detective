@@ -21,7 +21,7 @@ public class AppUser {
 
     private String city;
     private String state;
-    private Long zipCode;
+    private String zipCode;
 
     private Boolean peanutAllergies;
     private Boolean eggAllergies;

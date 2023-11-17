@@ -3,6 +3,7 @@ package com.example.demo.services;
 import com.example.demo.model.DiningReview;
 import com.example.demo.model.AppUser;
 import com.example.demo.repository.UserRep;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.server.ResponseStatusException;
@@ -12,6 +13,7 @@ import java.util.Optional;
 public class ReviewService {
 
     // Repository for User
+    @Autowired
     UserRep userRepository;
 
     // Method to validate a user review
@@ -28,9 +30,9 @@ public class ReviewService {
 
         // Check if all the scores in the review are empty
         if (ObjectUtils.isEmpty(review.getPeanutScore()) &&
-                ObjectUtils.isEmpty(review.getDairyScore()) &&
-                ObjectUtils.isEmpty(review.getEggScore())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+         ObjectUtils.isEmpty(review.getDairyScore()) &&
+         ObjectUtils.isEmpty(review.getEggScore())) {
+         throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
 
         // Check if a user with the review name exists
@@ -40,3 +42,4 @@ public class ReviewService {
         }
     }
 }
+

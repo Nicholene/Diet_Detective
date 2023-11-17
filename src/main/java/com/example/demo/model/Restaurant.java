@@ -13,9 +13,10 @@ import jakarta.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Restaurant {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
+    private Long id;
     private String name;
 
     private String lineOne;

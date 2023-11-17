@@ -5,6 +5,7 @@ import com.example.demo.model.Restaurant;
 import com.example.demo.model.ReviewStatus;
 import com.example.demo.repository.DiningReviewRep;
 import com.example.demo.repository.RestaurantRep;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -17,7 +18,9 @@ import java.util.List;
 public class AdminService {
 
     // Repositories for DiningReview and Restaurant
+    @Autowired
     DiningReviewRep reviewRepository;
+    @Autowired
     RestaurantRep restaurantRepository;
 
     // DecimalFormat for formatting the scores
@@ -26,7 +29,7 @@ public class AdminService {
     // Method to update restaurant review scores
     public void updateRestaurantReviewScores(Restaurant restaurant) {
         // Fetch the reviews for the restaurant
-        List<DiningReview> reviews = reviewRepository.findDiningReviewsByStatusAndRestaurantId((ReviewStatus.ACCEPTED),restaurant.getID());
+        List<DiningReview> reviews = reviewRepository.findDiningReviewsByStatusAndRestaurantId((ReviewStatus.ACCEPTED),restaurant.getId());
 
         // If no reviews, throw an exception
         if (reviews.size() == 0) {
