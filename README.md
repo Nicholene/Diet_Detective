@@ -3,7 +3,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -15,10 +14,10 @@ the restaurant’s overall score.
 <br />
 
   <br />
-  <a href="https://github.com/Nicholene/Diet_Detective" target="_blank"><strong>Explore the docs »</strong></a>
+  <a href="https://github.com/Nicholene/Diet_Detective" target="_blank"><strong>Explore the Repo (click here)</strong></a>
   <br />
   <br />
-  <a href="https://medium.com/@nikkicholene2/backend-application-project-diet-detective-4557f317f72c" target="_blank">Review the Article</a>
+  <a href="https://medium.com/@nikkicholene2/backend-application-project-diet-detective-4557f317f72c" target="_blank"><strong>Review the In-Depth Article (click here)</strong></a>
   
   </p>
 </div>
@@ -93,7 +92,7 @@ Enjoy your coding journey! 😊
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Here is simplified guide:
+Here is a simplified guide:
 
 1. Add Users: Send a POST request to /users with the user’s details.
 2. Get User Info: Send a GET request to /users/{username}.
@@ -112,7 +111,7 @@ Remember, the data resets when the app restarts as it uses an in-memory H2 datab
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
@@ -139,12 +138,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Nicholene Davison - [Linkedin](https://www.linkedin.com/in/nicholenedavison) - nikkicholene2@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/Nicholene/Diet_Detective](https://github.com/Nicholene/Diet_Detective)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- ACKNOWLEDGMENTS -->
