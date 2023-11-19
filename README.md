@@ -95,7 +95,7 @@ Here is a simplified guide:
 4. Add Restaurants: Send a POST request to /api with the restaurant’s details.
 5. Get Restaurant Info: Send a GET request to /api/{restaurant_id}.
 6. Add Reviews: Send a POST request to /admin with the review details.
-7. Approve Reviews: If you’re an Admin, send a PUT request to /admin/reviews/{review_id}.
+7. Approve Reviews: Send a PUT request to /admin/reviews/{review_id}.
 
 For specific curl commands and more examples, please refer to the  <a href="https://medium.com/@nikkicholene2/backend-application-project-diet-detective-4557f317f72c" target="_blank"><strong>The In-Depth-Article (click here)</strong></a>
 
