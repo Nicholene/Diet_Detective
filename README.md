@@ -141,6 +141,7 @@ This project was made possible thanks to:
 * H2 Database: The in-memory database used.
 * cURL and JSON: Used for API communication.
 * GitHub: Used for version control and collaboration.
+* Stackoverflow: Used for design ideas and inspiration.
 
 
 
