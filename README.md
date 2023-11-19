@@ -55,12 +55,10 @@ the restaurant’s overall score.
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com](https://github.com/Nicholene/Diet_Detective)
+[![Product Name Screen Shot][product-screenshot]
 
 This API is designed for easy interaction and uses cURL and JSON format. The project is neatly structured with four entities, each having its own controller and service for efficient code management.
 We utilize an in-memory SQL database, H2, with JPA for CRUD operations. Please note that the data resets when the application restarts. This project is not just a practical application of Java Spring API skills, but also a valuable tool for those with dietary restrictions. Looking ahead, I plan to enhance the user experience by adding a front end for a more intuitive user interface. Stay tuned for more updates!
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -87,8 +85,6 @@ Ensure you have the following installed on your local machine:
 
 4. Run the application
 
-Enjoy your coding journey! 😊
-
 <!-- USAGE EXAMPLES -->
 ## Usage
 
@@ -102,11 +98,10 @@ Here is a simplified guide:
 6. Add Reviews: Send a POST request to /admin with the review details.
 7. Approve Reviews: If you’re an Admin, send a PUT request to /admin/reviews/{review_id}.
 
-_For specific curl commands and more examples , please refer to the [Article Here]("https://medium.com/@nikkicholene2/backend-application-project-diet-detective-4557f317f72c")_
+For specific curl commands and more examples, please refer to the  <a href="https://medium.com/@nikkicholene2/backend-application-project-diet-detective-4557f317f72c" target="_blank"><strong>The In-Depth-Article (click here)</strong></a>
 
 Remember, the data resets when the app restarts as it uses an in-memory H2 database. Code away! 😊
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -122,17 +117,11 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- CONTACT -->
@@ -141,8 +130,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 Nicholene Davison - [Linkedin](https://www.linkedin.com/in/nicholenedavison) - nikkicholene2@gmail.com
 
 Project Link: [https://github.com/Nicholene/Diet_Detective](https://github.com/Nicholene/Diet_Detective)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- ACKNOWLEDGMENTS -->
@@ -156,7 +143,6 @@ This project was made possible thanks to:
 * cURL and JSON: Used for API communication.
 * GitHub: Used for version control and collaboration.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
