@@ -70,9 +70,8 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Ensure you have the following installed on your local machine:
-*Java JDK 20 or later
-*Maven
+Ensure you have the following installed on your local machine: Java JDK 20 or later, Maven, and an IDE of your choice.
+
 
 
 ### Installation
