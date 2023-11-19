@@ -18,13 +18,6 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 
 
 <!-- PROJECT LOGO -->
@@ -34,19 +27,22 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Diet Detective</h3>
 
   <p align="center">
-    project_description
-    <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    Welcome to the Diet Detective, a haven for allergy-friendly dining! Users can review restaurants based on egg, peanut, or dairy allergies. Once an Admin approves these reviews, they contribute to   
+the restaurant’s overall score.
+Our API, designed for easy interaction, uses cURL and JSON format. The project is neatly structured with four entities, each having its own controller and service for efficient code management.
+We utilize an in-memory SQL database, H2, with JPA for CRUD operations. Please note that the data resets when the application restarts. This project is not just a practical application of Java Spring Boot API skills, but also a valuable tool for those with dietary restrictions.
+Looking ahead, we plan to enhance the user experience by adding a front end for a more intuitive user interface. Stay tuned for more updates!
+<br />
+
+  <br />
+  <a href="https://github.com/Nicholene/Diet_Detective" target="_blank"><strong>Explore the docs »</strong></a>
+  <br />
+  <br />
+  <a href="https://medium.com/@nikkicholene2/backend-application-project-diet-detective-4557f317f72c" target="_blank">Review the Article</a>
+  
   </p>
 </div>
 
@@ -83,24 +79,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://example.com](https://github.com/Nicholene/Diet_Detective)
 
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-### Built With
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
